@@ -45,7 +45,7 @@ class BaseQuery
         if (HttpRequest::METH_GET === $query->getRequestMethod()) {
             return $this->config->getHost($query->getHost()).$routes['GET'];
         } elseif (HttpRequest::METH_POST === $query->getRequestMethod()) {
-            return $this->config->getHost($query->getHost()).$routes['POST'];
+            return $this->config->getHost($query->getHost()).$routes['SET'];
         }
 
         throw new \Exception('Routes not defined.');

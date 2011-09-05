@@ -17,8 +17,8 @@ class Configuration
         'default' => 'http://127.0.0.1:5000/',
     );
     protected $routes = array(
-        'get' => 'analytics',
-        'set' => 'publish',
+        'GET' => 'analytics',
+        'SET' => 'publish',
     );
 
     public function getHost($id)
