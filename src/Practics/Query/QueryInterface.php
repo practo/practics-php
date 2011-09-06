@@ -15,7 +15,7 @@ interface QueryInterface
 {
     /**
      * @abstract
-     * @return void
+     * @return string
      */
     function getId();
 

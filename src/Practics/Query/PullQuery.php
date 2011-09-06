@@ -89,7 +89,7 @@ class PullQuery extends BaseQuery implements QueryInterface
 
     /**
      * @param $key
-     * @return null
+     * @return string
      */
     public function getParameter($key)
     {
@@ -98,11 +98,12 @@ class PullQuery extends BaseQuery implements QueryInterface
 
     /**
      * @param array $parameters
-     * @return void
+     * @return PullQuery
      */
     public function setParameters(array $parameters)
     {
         array_merge($this->parameters, $parameters);
+        return $this;
     }
 
     /**

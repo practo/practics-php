@@ -84,12 +84,22 @@ class InsertQuery extends BaseQuery implements QueryInterface
     }
 
     /**
+     * @param $key
+     * @return string
+     */
+    public function getParameter($key)
+    {
+        return isset($this->parameters[$key]) ? $this->parameters[$key] : null;
+    }
+
+    /**
      * @param array $parameters
-     * @return void
+     * @return InsertQuery
      */
     public function setParameters(array $parameters)
     {
         array_merge($this->parameters, $parameters);
+        return $this;
     }
 
     /**
