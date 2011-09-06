@@ -15,6 +15,12 @@ interface QueryInterface
 {
     /**
      * @abstract
+     * @return void
+     */
+    function getId();
+
+    /**
+     * @abstract
      * @return int
      */
     function getRequestMethod();

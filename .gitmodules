@@ -1,0 +1,6 @@
+[submodule "lib/EventDispatcher"]
+	path = lib/EventDispatcher
+	url = git://github.com/symfony/EventDispatcher.git
+[submodule "lib/ClassLoader"]
+	path = lib/ClassLoader
+	url = git://github.com/symfony/ClassLoader.git

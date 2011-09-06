@@ -15,14 +15,17 @@ use Practics\Query\Query;
 
 class GetQueryTest extends \PHPUnit_Framework_TestCase
 {
-    public function testBasicGetQuery()
+    public function testPullQuery()
     {
         $query = new Query();
-        $query->get("totalapp")
+        $response = $query->pull("totalapp")
             ->setHost('default')
-            ->setParameter('date', '20110728')
-            ->setParameter('practice', 1)
+            ->setParameter('Date', '2011-07-27')
+            ->setParameter('Practice', 1)
             ->send()
             ->getResponse();
+
+        $expectedResponse = ""; //TODO: add the JSON expected response
+        $this->assertEquals($expectedResponse, $response);
     }
 }

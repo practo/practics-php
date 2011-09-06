@@ -19,9 +19,12 @@ class BaseQuery
 {
     protected $config;
 
-    public function __construct()
+    /**
+     * @return \Practics\Configuration
+     */
+    public function getConfig()
     {
-        $this->config = new Configuration();
+        return isset($this->config) ? $this->config : new Configuration();
     }
 
     /**
@@ -30,7 +33,7 @@ class BaseQuery
      */
     protected function getHost($id)
     {
-        return $this->config->getHost($id);
+        return $this->getConfig()->getHost($id);
     }
 
     /**
@@ -40,11 +43,12 @@ class BaseQuery
      */
     protected function getUri(QueryInterface $query)
     {
-        $routes = $this->config->getRoutes();
+        $routes = $this->getConfig()->getRoutes();
+        $id = $query->getId();
         if (HttpRequest::METH_GET === $query->getRequestMethod()) {
-            return $this->config->getHost($query->getHost()).$routes[$query->getRoute()];
+            return $this->getConfig()->getHost($query->getHost()).$routes[$query->getRoute()].'/'.$id.'/';
         } elseif (HttpRequest::METH_POST === $query->getRequestMethod()) {
-            return $this->config->getHost($query->getHost()).$routes[$query->getRoute()];
+            return $this->getConfig()->getHost($query->getHost()).$routes[$query->getRoute()].'/'.$id.'/';
         }
 
         throw new \Exception('Routes not defined.');

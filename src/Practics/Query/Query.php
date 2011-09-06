@@ -11,18 +11,18 @@
 
 namespace Practics\Query;
 
-use Practics\Query\GetQuery;
-use Practics\Query\SetQuery;
+use Practics\Query\PullQuery;
+use Practics\Query\InsertQuery;
 
 class Query
 {
-    public function get($id)
+    public function pull($id)
     {
-        return new GetQuery($id);
+        return new PullQuery($id);
     }
 
-    public function set($id)
+    public function insert($id)
     {
-        return new SetQuery($id);
+        return new InsertQuery($id);
     }
 }
