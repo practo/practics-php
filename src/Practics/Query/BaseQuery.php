@@ -30,8 +30,7 @@ class BaseQuery
      */
     protected function getHost($id)
     {
-        $routes = $this->config->getRoutes();
-        return isset($routes[$id]) ?: 'default';
+        return $this->config->getHost($id);
     }
 
     /**
@@ -43,9 +42,9 @@ class BaseQuery
     {
         $routes = $this->config->getRoutes();
         if (HttpRequest::METH_GET === $query->getRequestMethod()) {
-            return $this->config->getHost($query->getHost()).$routes['GET'];
+            return $this->config->getHost($query->getHost()).$routes[$query->getRoute()];
         } elseif (HttpRequest::METH_POST === $query->getRequestMethod()) {
-            return $this->config->getHost($query->getHost()).$routes['SET'];
+            return $this->config->getHost($query->getHost()).$routes[$query->getRoute()];
         }
 
         throw new \Exception('Routes not defined.');

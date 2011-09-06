@@ -12,13 +12,15 @@
 namespace Practics\Query;
 
 use \HttpRequest;
+use Practics\Configuration;
 
 class GetQuery extends BaseQuery implements QueryInterface
 {
     protected $id = null;
     protected $parameters = array();
     protected $response;
-    protected $host;
+    protected $host = 'default';
+    protected $routeId = 'pull';
 
     /**
      * @throws \Exception
@@ -56,6 +58,11 @@ class GetQuery extends BaseQuery implements QueryInterface
     public function getHost()
     {
         return $this->host;
+    }
+
+    public function getRoute()
+    {
+        return $this->routeId;
     }
 
     /**

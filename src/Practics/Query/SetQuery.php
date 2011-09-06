@@ -25,6 +25,10 @@ class SetQuery extends BaseQuery implements QueryInterface
     {
     }
 
+    public function getRoute()
+    {
+    }
+
     public function setParameter($key, $value)
     {
     }

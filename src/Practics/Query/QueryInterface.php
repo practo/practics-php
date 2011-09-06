@@ -34,6 +34,12 @@ interface QueryInterface
 
     /**
      * @abstract
+     * @return void
+     */
+    function getRoute();
+
+    /**
+     * @abstract
      * @param $key
      * @param $value
      * @return void
