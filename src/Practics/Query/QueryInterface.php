@@ -54,7 +54,21 @@ interface QueryInterface
 
     /**
      * @abstract
+     * @param $key
+     * @return string
+     */
+    function getParameter($key);
+
+    /**
+     * @abstract
+     * @param array $parameters
      * @return void
+     */
+    function setParameters(array $parameters);
+
+    /**
+     * @abstract
+     * @return array
      */
     function getParameters();
 

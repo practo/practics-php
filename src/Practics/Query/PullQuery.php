@@ -68,6 +68,9 @@ class PullQuery extends BaseQuery implements QueryInterface
         return $this->host;
     }
 
+    /**
+     * @return string
+     */
     public function getRoute()
     {
         return $this->routeId;
@@ -84,6 +87,27 @@ class PullQuery extends BaseQuery implements QueryInterface
         return $this;
     }
 
+    /**
+     * @param $key
+     * @return null
+     */
+    public function getParameter($key)
+    {
+        return isset($this->parameters[$key]) ? $this->parameters[$key] : null;
+    }
+
+    /**
+     * @param array $parameters
+     * @return void
+     */
+    public function setParameters(array $parameters)
+    {
+        array_merge($this->parameters, $parameters);
+    }
+
+    /**
+     * @return array
+     */
     public function getParameters()
     {
         return $this->parameters;
