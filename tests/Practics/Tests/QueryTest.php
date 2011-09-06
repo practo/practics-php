@@ -13,8 +13,13 @@ namespace Practics\Tests;
 
 use Practics\Query\Query;
 
-class GetQueryTest extends \PHPUnit_Framework_TestCase
+class QueryTest extends \PHPUnit_Framework_TestCase
 {
+    public function testInsertQuery()
+    {
+        //TODO
+    }
+
     public function testPullQuery()
     {
         $query = new Query();
@@ -25,7 +30,19 @@ class GetQueryTest extends \PHPUnit_Framework_TestCase
             ->send()
             ->getResponse();
 
-        $expectedResponse = ""; //TODO: add the JSON expected response
+        $response = json_decode($response, true);
+
+        $expectedResponse = array(
+            'Date:20110727' => array(
+                'Date' => '20110727',
+                'AppointmentCount' => 0
+            )
+        );
         $this->assertEquals($expectedResponse, $response);
+    }
+
+    public function testRemoveQuery()
+    {
+        //TODO
     }
 }
