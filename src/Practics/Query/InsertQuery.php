@@ -11,8 +11,12 @@
 
 namespace Practics\Query;
 
-class SetQuery extends BaseQuery implements QueryInterface
+class InsertQuery extends BaseQuery implements QueryInterface
 {
+    function getId()
+    {
+    }
+
     public function getRequestMethod()
     {
     }

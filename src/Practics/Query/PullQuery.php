@@ -14,7 +14,7 @@ namespace Practics\Query;
 use \HttpRequest;
 use Practics\Configuration;
 
-class GetQuery extends BaseQuery implements QueryInterface
+class PullQuery extends BaseQuery implements QueryInterface
 {
     protected $id = null;
     protected $parameters = array();
@@ -35,6 +35,14 @@ class GetQuery extends BaseQuery implements QueryInterface
     }
 
     /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @return int
      */
     public function getRequestMethod()
@@ -44,7 +52,7 @@ class GetQuery extends BaseQuery implements QueryInterface
 
     /**
      * @param $id
-     * @return GetQuery
+     * @return PullQuery
      */
     public function setHost($id)
     {
@@ -68,7 +76,7 @@ class GetQuery extends BaseQuery implements QueryInterface
     /**
      * @param $key
      * @param $value
-     * @return GetQuery
+     * @return PullQuery
      */
     public function setParameter($key, $value)
     {
