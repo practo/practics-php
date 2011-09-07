@@ -18,8 +18,8 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     public function testInsertQuery()
     {
         $payload = array(
-            'AppointmentId' => 1,
-            'Subscription' => 1,
+            'AppointmentId' => "1",
+            'Subscription' => "1",
             'StartDate' => '2011-07-27 08:00:00',
             'EndDate' => '2011-07-27 09:00:00',
             'Doctor' => '2',
@@ -48,7 +48,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $response = $query->pull("totalapp")
             ->setHost('default')
             ->setParameter('Date', '2011-07-27')
-            ->setParameter('Practice', 1)
+            ->setParameter('Practice', "1")
             ->send()
             ->getResponse();
 
@@ -57,7 +57,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $expectedResponse = array(
             'Date:20110727' => array(
                 'Date' => '20110727',
-                'AppointmentCount' => 1
+                'AppointmentCount' => "1"
             )
         );
         $this->assertEquals($expectedResponse, $response);
@@ -66,8 +66,8 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     public function testRemoveQuery()
     {
         $payload = array(
-            'AppointmentId' => 1,
-            'Subscription' => 1,
+            'AppointmentId' => "1",
+            'Subscription' => "1",
             'StartDate' => '2011-07-27 08:00:00',
             'EndDate' => '2011-07-27 09:00:00',
             'Doctor' => '2',

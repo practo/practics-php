@@ -99,7 +99,7 @@ class InsertQuery extends BaseQuery implements QueryInterface
      */
     public function setParameters(array $parameters)
     {
-        array_merge($this->parameters, $parameters);
+        $this->parameters = array_merge($this->parameters, $parameters);
         return $this;
     }
 
