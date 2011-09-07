@@ -18,8 +18,8 @@ class Configuration
     );
     protected $routes = array(
         'pull' => 'analytics',
-        'insert' => 'publish',
-        'remove' => 'publish',
+        'insert' => 'resource',
+        'delete' => 'resource',
     );
 
     public function getHost($id)

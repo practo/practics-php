@@ -13,6 +13,7 @@ namespace Practics\Query;
 
 use Practics\Query\PullQuery;
 use Practics\Query\InsertQuery;
+use Practics\Query\RemoveQuery;
 
 class Query
 {
@@ -24,5 +25,10 @@ class Query
     public function insert($id)
     {
         return new InsertQuery($id);
+    }
+
+    public function remove($id)
+    {
+        return new RemoveQuery($id);
     }
 }

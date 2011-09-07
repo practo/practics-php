@@ -13,13 +13,13 @@ namespace Practics\Query;
 
 use \HttpRequest;
 
-class InsertQuery extends BaseQuery implements QueryInterface
+class RemoveQuery extends BaseQuery implements QueryInterface
 {
     protected $resourceId = null;
-    protected $parameters = array('tr_type' => 'insert');
+    protected $parameters = array('tr_type' => 'delete');
     protected $response;
     protected $host = 'default';
-    protected $routeId = 'insert';
+    protected $routeId = 'delete';
 
     /**
      * @throws \Exception
@@ -52,7 +52,7 @@ class InsertQuery extends BaseQuery implements QueryInterface
 
     /**
      * @param $id
-     * @return InsertQuery
+     * @return RemoveQuery
      */
     public function setHost($id)
     {
@@ -76,7 +76,7 @@ class InsertQuery extends BaseQuery implements QueryInterface
     /**
      * @param $key
      * @param $value
-     * @return InsertQuery
+     * @return RemoveQuery
      */
     public function setParameter($key, $value)
     {
@@ -95,7 +95,7 @@ class InsertQuery extends BaseQuery implements QueryInterface
 
     /**
      * @param array $parameters
-     * @return InsertQuery
+     * @return RemoveQuery
      */
     public function setParameters(array $parameters)
     {
