@@ -14,7 +14,7 @@ namespace Practics;
 class Configuration
 {
     protected $hosts = array(
-        'default' => 'http://127.0.0.1:5000/',
+        'default' => 'http://analytics.practodev.in/',
     );
     protected $routes = array(
         'pull' => 'analytics',
