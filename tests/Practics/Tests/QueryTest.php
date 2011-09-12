@@ -26,7 +26,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         );
 
         $query = new Query();
-        $response = $query->insert('Appointment')
+        $response = $query->insert('Appointments')
             ->setParameters(array(
                  'payload' => json_encode($payload),
             ))
@@ -55,11 +55,13 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $response = json_decode($response, true);
 
         $expectedResponse = array(
-            'Date:20110727' => array(
+            'status' => 'OK',
+            'data' => array( 0 => array(
                 'Date' => '20110727',
-                'AppointmentCount' => 1
-            )
+                'AppointmentCount' => 1,
+            ))
         );
+
         $this->assertEquals($expectedResponse, $response);
     }
 
@@ -74,7 +76,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         );
 
         $query = new Query();
-        $response = $query->remove('Appointment')
+        $response = $query->remove('Appointments')
             ->setParameters(array(
                  'payload' => json_encode($payload),
             ))
