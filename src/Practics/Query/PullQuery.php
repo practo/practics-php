@@ -13,6 +13,7 @@ namespace Practics\Query;
 
 use \HttpRequest;
 use Practics\Configuration;
+use Practics\PracticsException;
 
 class PullQuery extends BaseQuery implements QueryInterface
 {
@@ -23,13 +24,13 @@ class PullQuery extends BaseQuery implements QueryInterface
     protected $routeId = 'pull';
 
     /**
-     * @throws \Exception
+     * @throws \Practics\PracticsException
      * @param $id
      */
     public function __construct($id)
     {
         if (!isset($id)) {
-            throw new \Exception("No analytics ID specified.");
+            throw new PracticsException("No analytics ID specified.");
         }
         $this->id = $id;
     }

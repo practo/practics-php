@@ -13,6 +13,7 @@ namespace Practics\Query;
 
 use \HttpRequest;
 use Practics\Configuration;
+use Practics\PracticsException;
 use Practics\Query\QueryInterface;
 
 class BaseQuery
@@ -37,7 +38,7 @@ class BaseQuery
     }
 
     /**
-     * @throws \Exception
+     * @throws \Practics\PracticsException
      * @param QueryInterface $query
      * @return string
      */
@@ -51,7 +52,7 @@ class BaseQuery
             return $this->getConfig()->getHost($query->getHost()).$routes[$query->getRoute()].'/'.$id.'/';
         }
 
-        throw new \Exception('Routes not defined.');
+        throw new PracticsException('Routes not defined.');
     }
 
     /**
@@ -71,8 +72,12 @@ class BaseQuery
 
         try {
             $request->send();
-            if ($request->getResponseCode() == 200) {
+            if (200 == $request->getResponseCode() || 202 == $request->getResponseCode()) {
                 $query->setResponse($request->getResponseBody());
+            } elseif (400 == $request->getResponseCode()) {
+                throw new PracticsException("Bad Request", PracticsException::PRACTICS_EXCEPTION_BAD_REQUEST);
+            } elseif (503 == $request->getResponseCode()) {
+                throw new PracticsException("Practics is down! Contact the administrator!", PracticsException::PRACTICS_EXCEPTION_SERVER_DOWN);
             }
         } catch (\HttpException $e) {
             throw $e;

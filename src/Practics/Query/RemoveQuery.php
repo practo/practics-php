@@ -12,6 +12,7 @@
 namespace Practics\Query;
 
 use \HttpRequest;
+use Practics\PracticsException;
 
 class RemoveQuery extends BaseQuery implements QueryInterface
 {
@@ -22,13 +23,13 @@ class RemoveQuery extends BaseQuery implements QueryInterface
     protected $routeId = 'delete';
 
     /**
-     * @throws \Exception
+     * @throws \Practics\PracticsException
      * @param $resourceId
      */
     public function __construct($resourceId)
     {
         if (!isset($resourceId)) {
-            throw new \Exception("No resource ID specified.");
+            throw new PracticsException("No resource ID specified.");
         }
         $this->resourceId = $resourceId;
     }
