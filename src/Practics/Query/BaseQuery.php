@@ -63,7 +63,6 @@ class BaseQuery
     protected function sendHttpRequest(QueryInterface $query)
     {
         $request = new HttpRequest($this->getUri($query), $query->getRequestMethod());
-
         if (HttpRequest::METH_GET === $query->getRequestMethod()) {
             $request->addQueryData($query->getParameters());
         } elseif (HttpRequest::METH_POST === $query->getRequestMethod()) {
