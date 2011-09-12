@@ -36,7 +36,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $response = json_decode($response, true);
 
         $expectedResponse = array(
-            'result' => 'success'
+            'status' => 'Accepted'
         );
 
         $this->assertEquals($expectedResponse, $response);
@@ -84,7 +84,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $response = json_decode($response, true);
 
         $expectedResponse = array(
-            'result' => 'success'
+            'status' => 'Accepted'
         );
 
         $this->assertEquals($expectedResponse, $response);
