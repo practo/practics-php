@@ -29,15 +29,6 @@ class BaseQuery
     }
 
     /**
-     * @param $id
-     * @return string
-     */
-    protected function getHost($id)
-    {
-        return $this->getConfig()->getHost($id);
-    }
-
-    /**
      * @throws \Practics\PracticsException
      * @param QueryInterface $query
      * @return string
