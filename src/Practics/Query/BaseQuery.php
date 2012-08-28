@@ -29,6 +29,22 @@ class BaseQuery
     }
 
     /**
+     * @throws \Exception
+     * @param \Practics\Configuration $configuration
+     *
+     * return null
+     */
+    public function setConfig($configuration)
+    {
+        if($configuration instanceof \Practics\Configuration) {
+            $this->config = $configuration;
+        }
+        else{
+            throw new Exception('configuration should be a instance of \Practics\Configuration');
+        }
+    }
+
+    /**
      * @throws \Practics\PracticsException
      * @param QueryInterface $query
      * @return string
