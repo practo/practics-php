@@ -29,22 +29,6 @@ class BaseQuery
     }
 
     /**
-     * @throws \Exception
-     * @param \Practics\Configuration $configuration
-     *
-     * return null
-     */
-    public function setConfig($configuration)
-    {
-        if($configuration instanceof \Practics\Configuration) {
-            $this->config = $configuration;
-        }
-        else{
-            throw new Exception('configuration should be a instance of \Practics\Configuration');
-        }
-    }
-
-    /**
      * @throws \Practics\PracticsException
      * @param QueryInterface $query
      * @return string
@@ -54,9 +38,9 @@ class BaseQuery
         $routes = $this->getConfig()->getRoutes();
         $id = $query->getId();
         if (HttpRequest::METH_GET === $query->getRequestMethod()) {
-            return $this->getConfig()->getHost($query->getHost()).$routes[$query->getRoute()].'/'.$id.'/';
+            return $this->getHost().$routes[$query->getRoute()].'/'.$id.'/';
         } elseif (HttpRequest::METH_POST === $query->getRequestMethod()) {
-            return $this->getConfig()->getHost($query->getHost()).$routes[$query->getRoute()].'/'.$id.'/';
+            return $this->getHost().$routes[$query->getRoute()].'/'.$id.'/';
         }
 
         throw new PracticsException('Routes not defined.');
