@@ -14,7 +14,7 @@ namespace Practics;
 class Configuration
 {
     protected $hosts = array(
-        'default' => 'http://analytics.practodev.in/',
+        'default' => 'http://localhost/',
     );
     protected $routes = array(
         'pull' => 'analytics',
@@ -33,5 +33,20 @@ class Configuration
     public function getRoutes()
     {
         return $this->routes;
+    }
+
+    /**
+     * set Host
+     *
+     * @param string $key - host key
+     * @param string $url - full qualified url with http
+     *
+     * return null
+     */
+    public function setHost($key, $url)
+    {
+        $this->hosts[$key] = $url;
+
+        return;
     }
 }
